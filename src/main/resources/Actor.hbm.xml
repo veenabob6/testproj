@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 25, 2010 3:44:58 PM by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="com.veena.hello.Actor" table="ACTOR">
+         
+        <id name="actor_id" type="java.lang.Integer">
+            <column name="ACTOR_ID"  />
+            <generator class="native" >
+            </generator>
+        </id>
+
+	        <property name="first_name" type="string">
+	            <column name="first_name"  />
+	        </property>
+   
+	<property name="last_name" type="string">
+	            <column name="last_name"  />
+	        </property>
+   	
+            
+           
+         </class>  
+	
+</hibernate-mapping>
