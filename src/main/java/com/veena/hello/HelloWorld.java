@@ -24,7 +24,7 @@ public class HelloWorld {
 		     actor.setFirst_name("Veena1");
 		     actor.setLast_name("Nair");
 		     sf.persist(actor);
-		     System.out.println("Hakunamatata");
+		     System.out.println("a");
 		     sf.getTransaction().commit();
 		     sf.close();
 		    }
