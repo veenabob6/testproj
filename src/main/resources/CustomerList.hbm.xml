@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.CustomerList" table="customer_list" >
+        <id name="id">
+            <column name="ID" sql-type="smallint(5) unsigned"/>
+            <generator class="assigned"></generator>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(91)" length="91" not-null="true"/>
+        </property>
+        <property name="address">
+            <column name="address" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="zipCode">
+            <column name="zip code" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="phone">
+            <column name="phone" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="city">
+            <column name="city" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="country">
+            <column name="country" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="notes">
+            <column name="notes" sql-type="varchar(6)" length="6"/>
+        </property>
+        <property name="sid">
+            <column name="SID" sql-type="tinyint(3) unsigned"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,4 +1,4 @@
-package com.veena.hello;
+package main.java.com.veena.hello.utilities;
 
 public class Greeter {
     public String sayHello() {

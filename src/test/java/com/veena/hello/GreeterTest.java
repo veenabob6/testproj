@@ -1,13 +1,13 @@
-package com.veena.hello;
-
-
+package test.java.com.veena.hello;
 
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import com.veena.hello.Greeter;
+import main.java.com.veena.hello.utilities.Greeter;
+
+
 
 public class GreeterTest {
 

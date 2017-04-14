@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.Staff" table="staff" schema="sakila">
+        <id name="staffId">
+            <column name="staff_id" sql-type="tinyint(3) unsigned"/>
+        </id>
+        <property name="firstName">
+            <column name="first_name" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="lastName">
+            <column name="last_name" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="addressId">
+            <column name="address_id" sql-type="smallint(5) unsigned"/>
+        </property>
+        <property name="picture">
+            <column name="picture" sql-type="blob" not-null="true"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="storeId">
+            <column name="store_id" sql-type="tinyint(3) unsigned"/>
+        </property>
+        <property name="active">
+            <column name="active" sql-type="tinyint(1)"/>
+        </property>
+        <property name="username">
+            <column name="username" sql-type="varchar(16)" length="16"/>
+        </property>
+        <property name="password">
+            <column name="password" sql-type="varchar(40)" length="40" not-null="true"/>
+        </property>
+        <property name="lastUpdate">
+            <column name="last_update" sql-type="timestamp"/>
+        </property>
+        <many-to-one name="addressByAddressId" class="com.veena.hello.Address">
+            <column name="address_id"/>
+        </many-to-one>
+        <many-to-one name="storeByStoreId" class="com.veena.hello.Store">
+            <column name="store_id"/>
+        </many-to-one>
+        <set name="paymentsByStaffId" inverse="true">
+            <key>
+                <column name="staff_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Payment"/>
+        </set>
+        <set name="rentalsByStaffId" inverse="true">
+            <key>
+                <column name="staff_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Rental"/>
+        </set>
+        <set name="storesByStaffId" inverse="true">
+            <key>
+                <column name="manager_staff_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Store"/>
+        </set>
+    </class>
+</hibernate-mapping>

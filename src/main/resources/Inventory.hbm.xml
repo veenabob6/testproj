@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.Inventory" table="inventory" schema="sakila">
+        <id name="Id" >
+        <column name="film_id" sql-type="Integer"/>
+        </id>
+        
+        <property name="storeId">
+            <column name="store_id" sql-type="tinyint(3) unsigned"/>
+        </property>
+        <property name="lastUpdate">
+            <column name="last_update" sql-type="timestamp"/>
+        </property>
+        <many-to-one name="filmByFilmId" class="com.veena.hello.Film">
+            <column name="film_id"/>
+        </many-to-one>
+        <many-to-one name="storeByStoreId" class="com.veena.hello.Store">
+            <column name="store_id"/>
+        </many-to-one>
+        <set name="rentalsByInventoryId" inverse="true">
+            <key>
+                <column name="inventory_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Rental"/>
+        </set>
+    </class>
+</hibernate-mapping>

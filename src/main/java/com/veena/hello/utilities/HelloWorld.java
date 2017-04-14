@@ -1,4 +1,4 @@
-package com.veena.hello;
+package main.java.com.veena.hello.utilities;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,8 +6,12 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.veena.hello.Actor;
-import com.veena.hello.Greeter;
+import main.java.com.veena.hello.dvo.Actor;
+
+
+
+
+
 
 public class HelloWorld {
 
@@ -21,8 +25,8 @@ public class HelloWorld {
 		    Session sf= sessionfact.openSession();
 		     sf.beginTransaction();
 		     Actor actor=new Actor();
-		     actor.setFirst_name("Veena1");
-		     actor.setLast_name("Nair");
+		     actor.setFirst_name("Test");
+		     actor.setLast_name("User");
 		     sf.persist(actor);
 		     System.out.println("a");
 		     sf.getTransaction().commit();

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.Language" table="language" schema="sakila">
+        <id name="languageId">
+            <column name="language_id" sql-type="tinyint(3) unsigned"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="char(20)" length="20"/>
+        </property>
+        <property name="lastUpdate">
+            <column name="last_update" sql-type="timestamp"/>
+        </property>
+        <set name="filmsByLanguageId" inverse="true">
+            <key>
+                <column name="language_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Film"/>
+        </set>
+        <set name="filmsByLanguageId_0" inverse="true">
+            <key>
+                <column name="original_language_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Film"/>
+        </set>
+    </class>
+</hibernate-mapping>

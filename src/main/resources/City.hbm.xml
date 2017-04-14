@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.City" table="city" schema="sakila">
+        <id name="cityId">
+            <column name="city_id" sql-type="smallint(5) unsigned"/>
+        </id>
+        <property name="city">
+            <column name="city" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="countryId">
+            <column name="country_id" sql-type="smallint(5) unsigned"/>
+        </property>
+        <property name="lastUpdate">
+            <column name="last_update" sql-type="timestamp"/>
+        </property>
+        <many-to-one name="countryByCountryId" class="com.veena.hello.Country">
+            <column name="country_id"/>
+        </many-to-one>
+        <set name="addressesByCityId" inverse="true">
+            <key>
+                <column name="city_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Address"/>
+        </set>
+    </class>
+</hibernate-mapping>

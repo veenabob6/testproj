@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.Address" table="address" schema="sakila">
+        <id name="addressId">
+            <column name="address_id" sql-type="smallint(5) unsigned"/>
+        </id>
+        <property name="address">
+            <column name="address" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="address2">
+            <column name="address2" sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="district">
+            <column name="district" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="cityId">
+            <column name="city_id" sql-type="smallint(5) unsigned"/>
+        </property>
+        <property name="postalCode">
+            <column name="postal_code" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="phone">
+            <column name="phone" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="lastUpdate">
+            <column name="last_update" sql-type="timestamp"/>
+        </property>
+        <many-to-one name="cityByCityId" class="com.veena.hello.City">
+            <column name="city_id"/>
+        </many-to-one>
+        <set name="customersByAddressId" inverse="true">
+            <key>
+                <column name="address_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Customer"/>
+        </set>
+        <set name="staffByAddressId" inverse="true">
+            <key>
+                <column name="address_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Staff"/>
+        </set>
+        <set name="storesByAddressId" inverse="true">
+            <key>
+                <column name="address_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Store"/>
+        </set>
+    </class>
+</hibernate-mapping>

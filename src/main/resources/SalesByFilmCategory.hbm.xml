@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.SalesByFilmCategory" table="sales_by_film_category" >
+        <id name="category">
+            <column name="category" sql-type="varchar(25)" length="25"/>
+        </id>
+        <property name="totalSales">
+            <column name="total_sales" sql-type="decimal(27,2)" precision="27" scale="2" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

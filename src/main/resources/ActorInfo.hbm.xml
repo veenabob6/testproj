@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.ActorInfo" table="actor_info" >
+        <id name="actorId">
+            <column name="actor_id" sql-type="smallint(5) unsigned"/>
+        </id>
+        <property name="firstName">
+            <column name="first_name" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="lastName">
+            <column name="last_name" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="filmInfo">
+            <column name="film_info" sql-type="text" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

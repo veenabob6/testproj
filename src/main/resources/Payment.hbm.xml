@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.Payment" table="payment" schema="sakila">
+        <id name="paymentId">
+            <column name="payment_id" sql-type="smallint(5) unsigned"/>
+        </id>
+        <property name="customerId">
+            <column name="customer_id" sql-type="smallint(5) unsigned"/>
+        </property>
+        <property name="staffId">
+            <column name="staff_id" sql-type="tinyint(3) unsigned"/>
+        </property>
+        <property name="rentalId">
+            <column name="rental_id" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="amount">
+            <column name="amount" sql-type="decimal(5,2)" precision="5" scale="2"/>
+        </property>
+        <property name="paymentDate">
+            <column name="payment_date" sql-type="datetime"/>
+        </property>
+        <property name="lastUpdate">
+            <column name="last_update" sql-type="timestamp"/>
+        </property>
+        <many-to-one name="customerByCustomerId" class="com.veena.hello.Customer">
+            <column name="customer_id"/>
+        </many-to-one>
+        <many-to-one name="staffByStaffId" class="com.veena.hello.Staff">
+            <column name="staff_id"/>
+        </many-to-one>
+        <many-to-one name="rentalByRentalId" class="com.veena.hello.Rental">
+            <column name="rental_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

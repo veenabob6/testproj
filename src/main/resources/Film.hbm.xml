@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.Film" table="film" schema="sakila">
+        <id name="filmId">
+            <column name="film_id" sql-type="smallint(5) unsigned"/>
+        </id>
+        <property name="title">
+            <column name="title" sql-type="varchar(255)"/>
+        </property>
+        <property name="description">
+            <column name="description" sql-type="text" not-null="true"/>
+        </property>
+        <property name="languageId">
+            <column name="language_id" sql-type="tinyint(3) unsigned"/>
+        </property>
+        <property name="originalLanguageId">
+            <column name="original_language_id" sql-type="tinyint(3) unsigned" not-null="true"/>
+        </property>
+        <property name="rentalDuration">
+            <column name="rental_duration" sql-type="tinyint(3) unsigned"/>
+        </property>
+        <property name="rentalRate">
+            <column name="rental_rate" sql-type="decimal(4,2)" precision="4" scale="2"/>
+        </property>
+        <property name="length">
+            <column name="length" sql-type="smallint(5) unsigned" not-null="true"/>
+        </property>
+        <property name="replacementCost">
+            <column name="replacement_cost" sql-type="decimal(5,2)" precision="5" scale="2"/>
+        </property>
+        <property name="lastUpdate">
+            <column name="last_update" sql-type="timestamp"/>
+        </property>
+        <many-to-one name="languageByLanguageId" class="com.veena.hello.Language">
+            <column name="language_id"/>
+        </many-to-one>
+        <many-to-one name="languageByOriginalLanguageId" class="com.veena.hello.Language">
+            <column name="original_language_id" not-null="true"/>
+        </many-to-one>
+        <set name="filmActorsByFilmId" inverse="true">
+            <key>
+                <column name="film_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.FilmActor"/>
+        </set>
+        <set name="filmCategoriesByFilmId" inverse="true">
+            <key>
+                <column name="film_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.FilmCategory"/>
+        </set>
+        <set name="inventoriesByFilmId" inverse="true">
+            <key>
+                <column name="film_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Inventory"/>
+        </set>
+    </class>
+</hibernate-mapping>

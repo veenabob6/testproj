@@ -19,7 +19,8 @@
 --> 
 
 
-   	<bean id="greeterClass" class="com.veena.hello.Greeter"/>
+   	<bean id="greeterClass" class="main.java.com.veena.hello.utilities.Greeter"/>
+   
 	
 </beans>
 

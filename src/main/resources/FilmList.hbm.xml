@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.FilmList" table="film_list" schema="sakila">
+        <id name="fid">
+            <column name="FID" sql-type="smallint(5) unsigned" not-null="true"/>
+        </id>
+        <property name="title">
+            <column name="title" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="description">
+            <column name="description" sql-type="text" not-null="true"/>
+        </property>
+        <property name="category">
+            <column name="category" sql-type="varchar(25)" length="25"/>
+        </property>
+        <property name="price">
+            <column name="price" sql-type="decimal(4,2)" precision="4" scale="2" not-null="true"/>
+        </property>
+        <property name="length">
+            <column name="length" sql-type="smallint(5) unsigned" not-null="true"/>
+        </property>
+        <property name="actors">
+            <column name="actors" sql-type="text" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

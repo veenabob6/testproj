@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.Store" table="store" schema="sakila">
+        <id name="storeId">
+            <column name="store_id" sql-type="tinyint(3) unsigned"/>
+        </id>
+        <property name="managerStaffId">
+            <column name="manager_staff_id" sql-type="tinyint(3) unsigned"/>
+        </property>
+        <property name="addressId">
+            <column name="address_id" sql-type="smallint(5) unsigned"/>
+        </property>
+        <property name="lastUpdate">
+            <column name="last_update" sql-type="timestamp"/>
+        </property>
+        <many-to-one name="staffByManagerStaffId" class="com.veena.hello.Staff">
+            <column name="manager_staff_id"/>
+        </many-to-one>
+        <many-to-one name="addressByAddressId" class="com.veena.hello.Address">
+            <column name="address_id"/>
+        </many-to-one>
+        <set name="customersByStoreId" inverse="true">
+            <key>
+                <column name="store_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Customer"/>
+        </set>
+        <set name="inventoriesByStoreId" inverse="true">
+            <key>
+                <column name="store_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Inventory"/>
+        </set>
+        <set name="staffByStoreId" inverse="true">
+            <key>
+                <column name="store_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Staff"/>
+        </set>
+    </class>
+</hibernate-mapping>

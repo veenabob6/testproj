@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.FilmCategory" table="film_category" schema="sakila">
+        <composite-id mapped="true" class="com.veena.hello.FilmCategoryPK">
+            <key-property name="filmId">
+                <column name="film_id" sql-type="smallint(5) unsigned"/>
+            </key-property>
+            <key-property name="categoryId">
+                <column name="category_id" sql-type="tinyint(3) unsigned"/>
+            </key-property>
+        </composite-id>
+        <property name="lastUpdate">
+            <column name="last_update" sql-type="timestamp"/>
+        </property>
+        <many-to-one name="filmByFilmId" class="com.veena.hello.Film">
+            <column name="film_id"/>
+        </many-to-one>
+        <many-to-one name="categoryByCategoryId" class="com.veena.hello.Category">
+            <column name="category_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

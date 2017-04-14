@@ -12,14 +12,60 @@
        
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/sakila</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">root</property>
+         <property name="connection.username">root</property>
+                  <property name="connection.password">root</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
   
         <!-- mapping files -->
         <mapping resource="/Actor.hbm.xml"/>
-       
-   </session-factory>
+        <mapping class="main.java.com.veena.hello.dvo.Actor"/>
+        <mapping resource="/Actor.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Address"/>
+        <mapping resource="/Address.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Category"/>
+        <mapping resource="/Category.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.City"/>
+        <mapping resource="/City.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Country"/>
+        <mapping resource="/Country.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Customer"/>
+        <mapping resource="/Customer.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Film"/>
+        <mapping resource="/Film.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.FilmActor"/>
+        <mapping resource="/FilmActor.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.FilmCategory"/>
+        <mapping resource="/FilmCategory.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.FilmText"/>
+        <mapping resource="/FilmText.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Inventory"/>
+        <mapping resource="/Inventory.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Language"/>
+        <mapping resource="/Language.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Payment"/>
+        <mapping resource="/Payment.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Rental"/>
+        <mapping resource="/Rental.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Staff"/>
+        <mapping resource="/Staff.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.Store"/>
+        <mapping resource="/Store.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.ActorInfo"/>
+        <mapping resource="/ActorInfo.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.CustomerList"/>
+        <mapping resource="/CustomerList.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.FilmList"/>
+        <mapping resource="/FilmList.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.NicerButSlowerFilmList"/>
+        <mapping resource="/NicerButSlowerFilmList.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.SalesByFilmCategory"/>
+        <mapping resource="/SalesByFilmCategory.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.SalesByStore"/>
+        <mapping resource="/SalesByStore.hbm.xml"/>
+        <mapping class="main.java.com.veena.hello.dvo.StaffList"/>
+        <mapping resource="/StaffList.hbm.xml"/>
+
+</session-factory>
 
 </hibernate-configuration>

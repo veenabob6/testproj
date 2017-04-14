@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="main.java.com.veena.hello.dvo.Rental" table="rental" schema="sakila">
+        <id name="rentalId">
+            <column name="rental_id" sql-type="int(11)"/>
+        </id>
+        <property name="rentalDate">
+            <column name="rental_date" sql-type="datetime"/>
+        </property>
+        <property name="customerId">
+            <column name="customer_id" sql-type="smallint(5) unsigned"/>
+        </property>
+        <property name="returnDate">
+            <column name="return_date" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="staffId">
+            <column name="staff_id" sql-type="tinyint(3) unsigned"/>
+        </property>
+        <property name="lastUpdate">
+            <column name="last_update" sql-type="timestamp"/>
+        </property>
+        <many-to-one name="inventoryByInventoryId" class="com.veena.hello.Inventory">
+            <column name="inventory_id"/>
+        </many-to-one>
+        <many-to-one name="customerByCustomerId" class="com.veena.hello.Customer">
+            <column name="customer_id"/>
+        </many-to-one>
+        <many-to-one name="staffByStaffId" class="com.veena.hello.Staff">
+            <column name="staff_id"/>
+        </many-to-one>
+        <set name="paymentsByRentalId" inverse="true">
+            <key>
+                <column name="rental_id" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.veena.hello.Payment"/>
+        </set>
+    </class>
+</hibernate-mapping>
